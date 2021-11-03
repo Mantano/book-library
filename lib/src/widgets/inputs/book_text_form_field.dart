@@ -19,7 +19,7 @@ class BookTextFormField extends StatelessWidget {
       initialValue: initialValue,
       style: Theme.of(context).textTheme.caption.copyWith(
             fontSize: 16.0,
-            color: Theme.of(context).textTheme.title.color,
+            color: Theme.of(context).textTheme.headline6.color,
           ),
       decoration: InputDecoration(
           labelText: labelText,

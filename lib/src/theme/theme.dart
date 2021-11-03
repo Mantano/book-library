@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:book_library/src/theme/colors.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Theme {
   static final ThemeData baseLight = ThemeData.light();
@@ -8,32 +9,31 @@ class Theme {
   static ThemeData get lightTheme {
     return baseLight.copyWith(
       textTheme: _lightTextTheme,
-      accentColor: kAccentColor,
       primaryColor: kPrimaryColor,
       scaffoldBackgroundColor: kPrimaryColor,
       appBarTheme: _appBarTheme,
       floatingActionButtonTheme: _fabTheme,
       errorColor: kErrorColor,
-      buttonColor: kAccentColor,
+      colorScheme: ColorScheme.fromSwatch().copyWith(secondary: kAccentColor),
     );
   }
 
   static TextTheme get _lightTextTheme {
     return TextTheme(
-      title: TextStyle(
-        fontFamily: 'Nunito',
+      headline6: TextStyle(
+        fontFamily: GoogleFonts.nunito().fontFamily,
         fontSize: 22,
         fontWeight: FontWeight.w700,
         color: kTextTitleColor,
       ),
       caption: TextStyle(
-        fontFamily: 'Nunito',
+        fontFamily: 'GoogleFonts.nunito().fontFamily',
         fontSize: 17.0,
         color: kGreyColor,
         fontWeight: FontWeight.w500,
       ),
-      subtitle: TextStyle(
-        fontFamily: 'Nunito',
+      subtitle2: TextStyle(
+        fontFamily: 'GoogleFonts.nunito().fontFamily',
         fontSize: 17.0,
         color: kAccentColor,
       ),
@@ -44,16 +44,27 @@ class Theme {
     return AppBarTheme(
       elevation: 0,
       color: kPrimaryColor,
-      textTheme: _lightTextTheme.copyWith(
-        title: TextStyle(
-          fontSize: 22.0,
-          fontWeight: FontWeight.w600,
-          color: kTextTitleColor,
-        ),
-      ),
       iconTheme: IconThemeData(
         color: kTextTitleColor,
       ),
+      toolbarTextStyle: _lightTextTheme
+          .copyWith(
+            headline6: TextStyle(
+              fontSize: 22.0,
+              fontWeight: FontWeight.w600,
+              color: kTextTitleColor,
+            ),
+          )
+          .bodyText2,
+      titleTextStyle: _lightTextTheme
+          .copyWith(
+            headline6: TextStyle(
+              fontSize: 22.0,
+              fontWeight: FontWeight.w600,
+              color: kTextTitleColor,
+            ),
+          )
+          .headline6,
     );
   }
 
@@ -63,32 +74,32 @@ class Theme {
   static ThemeData get darkTheme {
     return baseDark.copyWith(
       textTheme: _darkTextTheme,
-      accentColor: kAccentColorDark,
       primaryColor: kPrimaryColorDark,
       scaffoldBackgroundColor: kPrimaryColorDark,
       appBarTheme: _appBarThemeDark,
       floatingActionButtonTheme: _fabThemeDark,
       errorColor: kErrorColorDark,
-      buttonColor: kAccentColorDark,
+      colorScheme:
+          ColorScheme.fromSwatch().copyWith(secondary: kAccentColorDark),
     );
   }
 
   static TextTheme get _darkTextTheme {
     return TextTheme(
-      title: TextStyle(
-        fontFamily: 'Nunito',
+      headline6: TextStyle(
+        fontFamily: 'GoogleFonts.nunito().fontFamily',
         fontSize: 22,
         fontWeight: FontWeight.w700,
         color: Colors.white,
       ),
       caption: TextStyle(
-        fontFamily: 'Nunito',
+        fontFamily: 'GoogleFonts.nunito().fontFamily',
         fontSize: 17.0,
         color: kGreyColorDark,
         fontWeight: FontWeight.w500,
       ),
-      subtitle: TextStyle(
-        fontFamily: 'Nunito',
+      subtitle2: TextStyle(
+        fontFamily: 'GoogleFonts.nunito().fontFamily',
         fontSize: 17.0,
         color: kAccentColorDark,
       ),
@@ -103,16 +114,27 @@ class Theme {
     return AppBarTheme(
       elevation: 0,
       color: kPrimaryColorDark,
-      textTheme: _darkTextTheme.copyWith(
-        title: TextStyle(
-          fontSize: 22.0,
-          fontWeight: FontWeight.w600,
-          color: kTextTitleColorDark,
-        ),
-      ),
       iconTheme: IconThemeData(
         color: kTextTitleColorDark,
       ),
+      toolbarTextStyle: _darkTextTheme
+          .copyWith(
+            headline6: TextStyle(
+              fontSize: 22.0,
+              fontWeight: FontWeight.w600,
+              color: kTextTitleColorDark,
+            ),
+          )
+          .bodyText2,
+      titleTextStyle: _darkTextTheme
+          .copyWith(
+            headline6: TextStyle(
+              fontSize: 22.0,
+              fontWeight: FontWeight.w600,
+              color: kTextTitleColorDark,
+            ),
+          )
+          .headline6,
     );
   }
 }

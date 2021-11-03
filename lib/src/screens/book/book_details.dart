@@ -43,7 +43,7 @@ class BookDetails extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(0.0, 32.0, 0.0, 4.0),
                 child: Text(
                   '${_book.title}',
-                  style: Theme.of(context).textTheme.title,
+                  style: Theme.of(context).textTheme.headline6,
                 ),
               ),
               Padding(
@@ -97,7 +97,7 @@ class BookDetails extends StatelessWidget {
                         .caption
                         .color
                         .withOpacity(0.85),
-                    fontFamily: 'Nunito',
+                    fontFamily: 'GoogleFonts.nunito().fontFamily',
                     fontSize: 16.0),
               ),
             ],
@@ -167,6 +167,12 @@ class BookDetails extends StatelessWidget {
 
   void _showDeleteDialog(
       BuildContext context, BookNotifier bookNotifier) async {
+    final ButtonStyle flatButtonStyle = TextButton.styleFrom(
+      backgroundColor: Theme.of(context).colorScheme.primary,
+      primary: Colors.white.withOpacity(0.9),
+      textStyle: TextStyle(color: Theme.of(context).textTheme.caption.color),
+    );
+
     final dialog = AlertDialog(
       backgroundColor: Theme.of(context).primaryColor,
       title: Text('Delete book?'),
@@ -175,22 +181,14 @@ class BookDetails extends StatelessWidget {
         style: TextStyle(color: Theme.of(context).textTheme.caption.color),
       ),
       actions: [
-        FlatButton(
-          child: Text(
-            'CANCEL',
-            style: TextStyle(
-              color: Theme.of(context).buttonColor,
-            ),
-          ),
+        TextButton(
+          child: Text('CANCEL'),
+          style: flatButtonStyle,
           onPressed: () => Navigator.of(context).pop(),
         ),
-        FlatButton(
-          child: Text(
-            'ACCEPT',
-            style: TextStyle(
-              color: Theme.of(context).buttonColor,
-            ),
-          ),
+        TextButton(
+          child: Text('ACCEPT'),
+          style: flatButtonStyle,
           onPressed: () {
             bookNotifier.removeBook(_book);
             // Pop details screen

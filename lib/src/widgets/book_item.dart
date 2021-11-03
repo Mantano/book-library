@@ -48,7 +48,7 @@ class BookItem extends StatelessWidget {
                         border: Border(
                           right: BorderSide(
                             width: 4.0,
-                            color: Theme.of(context).accentColor,
+                            color: Theme.of(context).colorScheme.secondary,
                           ),
                         ),
                       )
@@ -63,7 +63,7 @@ class BookItem extends StatelessWidget {
                       children: <Widget>[
                         Text(
                           '${_book.title}',
-                          style: Theme.of(context).textTheme.title,
+                          style: Theme.of(context).textTheme.headline6,
                         ),
                         Padding(
                           padding: const EdgeInsets.only(top: 10.0),
@@ -80,7 +80,7 @@ class BookItem extends StatelessWidget {
                     ),
                     Text(
                       '${_book.category}',
-                      style: Theme.of(context).textTheme.subtitle,
+                      style: Theme.of(context).textTheme.subtitle2,
                     ),
                   ],
                 ),
